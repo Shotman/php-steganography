@@ -1,0 +1,6 @@
+{
+    "name": "sylvian/test",
+    "require": {
+        "picamator/steganographykit": "^1.1"
+    }
+}
