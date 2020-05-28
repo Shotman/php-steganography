@@ -1,6 +1,7 @@
 {
     "name": "sylvian/test",
     "require": {
-        "picamator/steganographykit": "^1.1"
+        "picamator/steganographykit": "^1.1",
+        "intervention/image": "^2.5"
     }
 }
