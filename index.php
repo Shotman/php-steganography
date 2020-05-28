@@ -130,7 +130,7 @@
             </div>
         </fieldset>
     </form>
-    <div class="col-md-4 text-center">
+    <div class="col-md-12 text-center">
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId">
             About steganograpy
         </button>

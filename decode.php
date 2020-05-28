@@ -22,8 +22,9 @@ if(isset($_FILES["image"])){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <style>
     html,
     body {
@@ -88,7 +89,7 @@ if(isset($_FILES["image"])){
         filter: alpha(opacity=0);
         opacity: 0;
         outline: none;
-        background: white;
+        /* background: white; */
         cursor: inherit;
         display: block;
     }
@@ -146,38 +147,33 @@ if(isset($_FILES["image"])){
             </div>
         </fieldset>
     </form>
-    <div class="col-md-4 text-center">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId">
-            About steganograpy
-        </button>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Steganography</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <p>
-                        Steganography is the technique of hiding secret data within an ordinary, non-secret, file or
-                        message in order to avoid detection; the secret data is then extracted at its destination. The
-                        use of steganography can be combined with encryption as an extra step for hiding or protecting
-                        data. The word steganography is derived from the Greek words steganos (meaning hidden or
-                        covered) and the Greek root graph (meaning to write).
-                    </p><a href="https://en.wikipedia.org/wiki/Steganography" target="_blank">Read mode about
-                        steganography(Wikipedia)</a>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <div class="col-md-12 text-center"> 
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modelId">
+     About steganograpy
+   </button>
+</div>
+   
+   <!-- Modal -->
+   <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+       <div class="modal-dialog" role="document">
+           <div class="modal-content">
+               <div class="modal-header">
+                   <h5 class="modal-title">Steganography</h5>
+                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                           <span aria-hidden="true">&times;</span>
+                       </button>
+               </div>
+               <div class="modal-body">
+                   <p>
+                   Steganography is the technique of hiding secret data within an ordinary, non-secret, file or message in order to avoid detection; the secret data is then extracted at its destination. The use of steganography can be combined with encryption as an extra step for hiding or protecting data. The word steganography is derived from the Greek words steganos (meaning hidden or covered) and the Greek root graph (meaning to write).
+                   </p><a href="https://en.wikipedia.org/wiki/Steganography" target="_blank">Read mode about steganography(Wikipedia)</a>
+               </div>
+               <div class="modal-footer">
+                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+               </div>
+           </div>
+       </div>
+   </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
@@ -189,11 +185,11 @@ if(isset($_FILES["image"])){
     </script>
     <script>
     $(document).ready(function() {
-        $('#imageencode').on('submit', function() {
+      $('#imageencode').on('submit', function() {
             $("#img-upload").attr("src", "")
             // $(this).get(0).reset();
-        }).on("reset", function() {
-            $("#img-upload").attr("src", "")
+        }).on("reset",function(){
+          $("#img-upload").attr("src", "")
         });
         $(document).on('change', '.btn-file :file', function() {
             var input = $(this),
