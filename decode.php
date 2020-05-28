@@ -1,17 +1,19 @@
 <?php
-require __DIR__ . '/vendor/autoload.php';
-require __DIR__. '/include/crypt.php';
-
-$password = $_POST["password"];
-$image = $_FILES["image"];
-if(PHP_OS === "Linux"){
-    $command = "/var/www/html/jsteg reveal {$image["tmp_name"]}";
+if(isset($_FILES["image"])){
+    require __DIR__ . '/vendor/autoload.php';
+    require __DIR__. '/include/crypt.php';
+    
+    $password = $_POST["password"];
+    $image = $_FILES["image"];
+    if(PHP_OS === "Linux"){
+        $command = "/var/www/html/jsteg reveal {$image["tmp_name"]}";
+    }
+    else{
+        $command = "jsteg.exe reveal {$image["tmp_name"]}";
+    }
+    $cipherText = exec($command);    
+    $original_plaintext = Crypt::decrypt($cipherText,$password);
 }
-else{
-    $command = "jsteg.exe reveal {$image["tmp_name"]}";
-}
-$cipherText = exec($command);    
-$original_plaintext = Crypt::decrypt($cipherText,$password);
 ?>
 <!doctype html>
 <html lang="en">
@@ -55,13 +57,17 @@ $original_plaintext = Crypt::decrypt($cipherText,$password);
               <a class="nav-link" href="/">Encode an image </a>
           </li>
           <li class="nav-item active">
-              <a class="nav-link" href="/decode.html">Decode an image <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="/decode.php">Decode an image <span class="sr-only">(current)</span></a>
           </li>
       </ul>
   </nav>
   <div class="row">
     <div class="container">
-      <h1>Secret message : <?= $original_plaintext ?></h1>
+        <?php
+        if(isset($original_plaintext)){
+            echo "<h1>Secret message : $original_plaintext</h1>";
+        }
+        ?>
       <form method="POST" action="decode.php" enctype="multipart/form-data">
         <fieldset class="form-group row">
           <legend class="col-form-legend col-sm-1-12">Get the message hidden inside an image</legend>

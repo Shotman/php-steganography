@@ -40,7 +40,7 @@
         <a class="nav-link" href="/">Encode an image <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/decode.html">Decode an image</a>
+        <a class="nav-link" href="/decode.php">Decode an image</a>
       </li>
     </ul>
   </nav>
